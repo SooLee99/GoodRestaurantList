@@ -4,18 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+// MemoryDbRepositoryAbstract 추상 클래스
 abstract public class MemoryDbRepositoryAbstract<T extends MemoryDBEntity> implements MemoryDBRepositoryIfs<T>{
 
-    private final List<T> db = new ArrayList<>();   // 데이터를 저장할 리스트.
+    // 데이터(인덱스)를 저장하는 리스트.
+    private final List<T> db = new ArrayList<>();
     private int index = 0;
 
+    // findById() : 인덱스에 해당되는 데이터를 리턴하는 메소드.
     @Override
     public Optional<T> findById(int index) {
-        // findFirst() : filter 조건에 일치하는 element 1개를 Optional 로 리턴합니다. 조건에 일치하는 요소가 없다면 empty 가 리턴됩니다.
+        // findFirst() : filter 조건에 일치하는 element 1개를 Optional 로 리턴한다. 조건에 일치하는 요소가 없다면 empty 가 리턴됩니다.
         db.stream().filter(it -> it.getIndex() == index).findFirst();
         return Optional.empty();
     }
 
+    // save() : 저장하려는 데이터의 인덱스를 확인한 후, 데이터를 저장하는 메소드.
     @Override
     public T save(T entity) {
         var optionalEntity = db.stream().filter(it -> it.getIndex() == entity.getIndex()).findFirst();
@@ -37,6 +41,7 @@ abstract public class MemoryDbRepositoryAbstract<T extends MemoryDBEntity> imple
         }
     }
 
+    // deleteById() : 삭제하려는 데이터의 인덱스를 확인한 후, 해당 데이터를 삭제하는 메소드.
     @Override
     public void deleteById(int index) {
         var optionalEntity = db.stream().filter(it -> it.getIndex() == index).findFirst();
@@ -47,6 +52,7 @@ abstract public class MemoryDbRepositoryAbstract<T extends MemoryDBEntity> imple
         }
     }
 
+    // listAll() : 전체 데이터를 리턴시키는 메소드
     @Override
     public List<T> listAll() {
         return db;
