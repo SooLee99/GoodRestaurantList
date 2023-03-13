@@ -6,9 +6,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+// MemoryDbRepositoryAbstract 추상클래스에서 WishListEntity 객체가 재대로 동작하는지 테스트하는 클래스.
 @SpringBootTest
 public class WishListRepositoryTest {
 
+    // @Autowired : 스프링 DI(Dependency Injection)에서 사용되는 어노테이션.
+    // 스프링에서 빈 인스턴스가 생성된 이후, @Autowired를 설정한 메서드가 자동으로 호출되고, 인스턴스가 자동으로 주입.
+    // 즉, 해당 변수 및 메서드에 스프링이 관리하는 Bean을 자동으로 매핑해주는 개념.
     @Autowired
     private WishListRepository wishListRepository;
 
