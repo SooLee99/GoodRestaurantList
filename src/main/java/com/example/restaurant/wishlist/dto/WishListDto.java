@@ -1,20 +1,16 @@
-package com.example.restaurant.wishlist.entity;
+package com.example.restaurant.wishlist.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import com.example.restaurant.db.MemoryDBEntity;
 
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @AllArgsConstructor
-@EqualsAndHashCode(callSuper=false)
 @Data
-// WishListEntity 클래스 : "메인 화면"에서 사용할 객체 클래스.
-public class WishListEntity extends MemoryDBEntity {
-
+public class WishListDto {
+    private Integer index;
     private String title;                   // 음식명, 장소명
     private String category;                // 카테고리
     private String address;                 // 주소

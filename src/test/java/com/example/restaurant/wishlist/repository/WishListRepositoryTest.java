@@ -22,11 +22,11 @@ public class WishListRepositoryTest {
         wishList.setTitle("title");
         wishList.setCategory("category");
         wishList.setAddress("address");
-        wishList.setReadAddress("roadAddress");
-        wishList.setHomepageLink("");
+        wishList.setRoadAddress("roadAddress");
+        wishList.setHomePageLink("");
         wishList.setImageLink("");
         wishList.setVisit(false);
-        wishList.setIsVisitCount(0);
+        wishList.setVisitCount(0);
         wishList.setLastVisitDate(null);
 
         return wishList;
@@ -63,7 +63,7 @@ public class WishListRepositoryTest {
         Assertions.assertEquals("update test", saveEntity.getTitle());
 
         // 데이터를 수정했기 때문에 데이터는 총 1개만 존재해야 한다. 확인되면 테스트 성공.
-        Assertions.assertEquals(1, wishListRepository.listAll().size());
+        Assertions.assertEquals(1, wishListRepository.findAll().size());
     }
 
     // findByIdTest() : 저장시킨 데이터가 재대로 리턴되는지 확인하는 메소드.
@@ -93,7 +93,7 @@ public class WishListRepositoryTest {
         wishListRepository.deleteById(1);
 
         // 총 데이터의 개수가 0개이면, 삭제 성공.
-        int count = wishListRepository.listAll().size();
+        int count = wishListRepository.findAll().size();
         Assertions.assertEquals(0, count);
     }
 
@@ -109,7 +109,7 @@ public class WishListRepositoryTest {
         wishListRepository.save(wishListEnity2);
 
         // 객체 2개가 리턴되면 테스트 성공.
-        int count = wishListRepository.listAll().size();
+        int count = wishListRepository.findAll().size();
         Assertions.assertEquals(2, count);
     }
 

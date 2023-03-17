@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MemoryDBEntity {
-    private int index;
+    private Integer index;
 }

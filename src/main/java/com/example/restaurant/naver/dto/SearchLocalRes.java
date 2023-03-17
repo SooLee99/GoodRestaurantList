@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-// Naver Local API 응답 받는 클래스.
+// SearchLocalRes 클래스 : Naver Local API에서 결과 정보를 받기 위한 객체 클래스.
 public class SearchLocalRes {
 
     private String lastBuildDate;
@@ -18,20 +18,19 @@ public class SearchLocalRes {
     private int display;
     private List<SearchLocalItem> items;
 
+    // 리스트로 받을 객체 -> 클래스 객체로 정리.
     @Data
     @NoArgsConstructor
     @AllArgsConstructor
     public static class SearchLocalItem {
-        private String category;
         private String title;
         private String link;
         private String description;
+        private String category;
         private String telephone;
         private String address;
         private String roadAddress;
         private int mapx;
         private int mapy;
     }
-
-
 }

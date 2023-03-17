@@ -9,7 +9,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-// Naver Image API 응답 받는 클래스.
+// SearchImageRes 클래스 : Naver Image API에서 결과 정보를 받기 위한 객체 클래스.
 public class SearchImageRes {
 
     private String lastBuildDate;
@@ -26,8 +26,6 @@ public class SearchImageRes {
         private String link;
         private String thumbnail;
         private String sizeheight;
-        private String sizeweight;
+        private String sizewidth;
     }
-
-
 }

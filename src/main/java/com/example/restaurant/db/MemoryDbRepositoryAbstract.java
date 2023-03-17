@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-// MemoryDbRepositoryAbstract 추상 클래스
+// MemoryDBRepositoryIfs 인터페이스를 상속해줌.
+// MemoryDbRepositoryAbstract 추상클래스 : "메인화면"에서 제공하는 기능을 수행하는 클래스.
 abstract public class MemoryDbRepositoryAbstract<T extends MemoryDBEntity> implements MemoryDBRepositoryIfs<T>{
 
-    // 데이터(인덱스)를 저장하는 리스트.
-    private final List<T> db = new ArrayList<>();
+    private final List<T> db = new ArrayList<>();    // 데이터(인덱스)를 저장하는 리스트.
     private int index = 0;
 
     // findById() : 인덱스에 해당되는 데이터를 리턴하는 메소드.
@@ -54,7 +54,7 @@ abstract public class MemoryDbRepositoryAbstract<T extends MemoryDBEntity> imple
 
     // listAll() : 전체 데이터를 리턴시키는 메소드
     @Override
-    public List<T> listAll() {
+    public List<T> findAll() {
         return db;
     }
 }
